@@ -1,0 +1,2275 @@
+/* styles.css */
+@font-face {
+  font-family: 'MontHeavy';
+  src: url('../font/Mont-HeavyDEMO.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MontExtraLight';
+  src: url('../font/Mont-ExtraLightDEMO.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+:root {
+  /* Цветовая палитра */
+  --color-bg: #fff;
+  --color-accent: #7fcf00;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-border: #e0e0e0;
+  --color-card-bg: #fafafa;
+
+  /* Типографика */
+  --font-base: 16px;
+  --font-scale-ratio: 1.125;
+  --line-height: 1.4;
+
+  /* Отступы */
+  --space-0: 3px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 60px;
+  --space-7: 70px;
+
+  /* Радиусы и тени */
+  --radius-sm: 4px;
+  --radius-sml: 10px;
+  --radius-md: 22px; /* увеличенный радиус для элементов формы */
+  --radius-lg: 30px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Общий шрифт для текста */
+body,
+p,
+a,
+li,
+span,
+input,
+textarea,
+button {
+  font-family: 'MontExtraLight', sans-serif;
+}
+
+/* Заголовки с жирным шрифтом */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'MontHeavy', sans-serif;
+}
+
+body {
+  font-size: var(--font-base);
+  line-height: var(--line-height);
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  font-family: sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+button {
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+}
+
+body > div {
+  max-width: 1400px;           /* максимальная ширина */
+  margin: 0 auto;              /* центрирует каждый блок */
+  padding: 0 var(--space-1);   /* горизонтальные «воздушные» отступы */
+  box-sizing: border-box;
+}
+body > div#block2 {
+  max-width: 1500px;
+}
+body > div#katalog {
+  max-width: 1500px;
+}
+body > div#video {
+  max-width: 1500px;
+}
+/* Utility classes */
+.text-center { text-align: center; }
+.flex { display: flex; }
+.align-center { align-items: center; }
+.gap-2 { gap: var(--space-2); }
+
+/* Header */
+.site-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+#shapka {
+  display: flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-5);
+}
+
+/* Лого прижато к левому краю, далее автополе отодвигает остальное вправо */
+.logo {
+  margin-right: auto;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Навигация и телефон в одну строку */
+.main-nav,
+.contact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Горизонтальный список */
+.main-nav ul {
+  display: flex;
+  gap: var(--space-7);
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: color 0.2s;
+}
+.main-nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Между меню и телефоном можно добавить небольшой отступ */
+.contact {
+  margin-left: var(--space-4);
+}
+.contact a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact a:hover {
+  color: var(--color-accent);
+}
+
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);    /* увеличить горизонтальные отступы */
+  min-width: 180px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* более реалистичная тень */
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover{
+  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* усиливаем тень на ховере */
+}
+
+
+/* Hero Section */
+.hero,
+.form-block,
+.features { 
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+}
+.hero {
+  grid-template-columns: 1fr 1fr;
+  background: url('../images/bg-clouds.png') no-repeat center top;
+}
+.hero-content h1 {
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 2);
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+.hero-content p {
+  font-size: calc(var(--font-base) * var(--font-scale-ratio));
+  margin-bottom: var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+/* Form Block */
+
+.form-block {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  padding: var(--space-5);
+  grid-template-columns: 1fr 1fr;
+  /* border: 1px solid rgba(0, 0, 0, 0.1);      лёгкая полупрозрачная обводка */
+  border-radius: var(--radius-md);           /* скруглить углы */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09); /* небольшая тенюшка */
+  margin-bottom: var(--space-4);
+      box-shadow:
+    /* тень от «верхней» грани (светлая) */
+    -2px -2px 5px rgba(255, 255, 255, 0.5),
+    /* тень от «нижней» грани (тёмная) */
+    4px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.form-content h2 {
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.5);
+  line-height: var(--line-height);
+  margin-bottom: var(--space-4);
+}
+.form-content h2 span { color: var(--color-accent); }
+.request-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--space-2);
+  align-items: center;
+}
+.request-form input {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);  /* более скругленное поле */
+  font-size: 0.875rem;
+}
+.request-form button {
+  padding: var(--space-2) var(--space-6); /* вертикально / горизонтально */
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.request-form button:hover {
+  opacity: 0.95;
+  transform: translateY(-2px); /* лёгкий "подъём" при наведении */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* усиленная тень */
+}
+
+
+/* Features Section */
+.features {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-6);
+}
+.features-title {
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.5);
+  margin-bottom: var(--space-5);
+  text-align: center;
+}
+.features-title span { color: var(--color-accent); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+.feature-card {
+  display: flex;
+  flex-direction: row;  /* картинка справа */
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+      box-shadow:
+    /* тень от «верхней» грани (светлая) */
+    -2px -2px 5px rgba(255, 255, 255, 0.5),
+    /* тень от «нижней» грани (тёмная) */
+    4px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.feature-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    -4px -4px 8px rgba(255, 255, 255, 0.6),
+    6px 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+
+.feature-card > div:first-child {
+  flex-shrink: 0;
+}
+.feature-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  text-align: left;
+}
+.feature-icon {
+  width: 40px;
+  height: auto;
+  display: block;
+}
+.feature-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.feature-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  
+}
+
+.bn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);             /* горизонтальный и вертикальный gap одновременно */
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+}
+
+/* Заголовок растягивается на обе колонки */
+.bn-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.5);
+  margin-bottom: var(--space-5);
+  color: var(--color-text-primary);
+}
+
+/* Акцент в заголовке */
+.bn-title span {
+  color: var(--color-accent);
+}
+
+/* Левая и правая колонки в два столбца */
+.bn-left,
+.bn-right {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* Карточка преимущества */
+.bn-item {
+  position: relative;               /* для псевдоэлементов */
+  background: var(--color-card-bg); /* либо градиент: например, linear-gradient(...) */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+
+
+    box-shadow:
+    /* тень от «верхней» грани (светлая) */
+    -2px -2px 5px rgba(255, 255, 255, 0.5),
+    /* тень от «нижней» грани (тёмная) */
+    4px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.bn-item:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    -4px -4px 8px rgba(255, 255, 255, 0.6),
+    6px 6px 18px rgba(0, 0, 0, 0.2);
+}
+.bn-icon {
+  width: 40px;
+  height: auto;
+  margin-bottom: var(--space-2);
+}
+
+.bn-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: var(--line-height);
+}
+
+/* Кнопка внизу, растянутая на всю ширину сетки */
+.bn-btn-wrapper {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.bn-btn {
+  display: inline-block;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  text-align: center;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.3s ease;
+}
+.bn-btn:hover {
+  background-image: linear-gradient(to right, #7fcf00 30%, #0add37ec 80%);
+  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.dist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5) var(--space-4);
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+  align-items: start;
+}
+
+/* Заголовок на всю ширину */
+.dist-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.5);
+  margin-bottom: var(--space-5);
+}
+
+.dist-title .bn-hl {
+  color: var(--color-accent);
+}
+
+/* Иконка и текст внутри dist-left */
+.dist-left .dist-icon {
+  width: 40px;
+  height: auto;
+  margin-bottom: var(--space-2);
+}
+
+.dist-left .feature-heading,
+.dist-left .feature-text {
+  max-width: 200px;
+  margin: 0;
+  text-align: right;
+}
+.dist-upper{
+  grid-column: 1 / -1;              /* тянем на всю ширину */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  
+}
+.dist-upper > div {
+  display: flex;
+  flex-direction: column;          /* контент сверху вниз */
+  align-items: flex-start;
+  gap: var(--space-2);
+
+}
+/* Нижняя (широкая) панель */
+.dist-lowwer {
+  grid-column: 1 / -1;              /* тянем на всю ширину */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+/* Блоки внутри dist-lowwer */
+.dist-lowwer > div {
+  display: flex;
+  flex-direction: column;          /* контент сверху вниз */
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* Общие стили иконок и текстов */
+.dist-icon {
+  width: 40px;
+  height: auto;
+}
+.dist-imgcon {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-2);          /* при желании – расстояние между иконками */
+}
+
+/* Убираем у иконок внутри .dist-imgcon margin-bottom, 
+   чтобы они не сдвигались по вертикали */
+.dist-imgcon .dist-icon {
+  margin-bottom: 0;
+}
+
+.feature-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+.feature-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height);
+  margin: 0;
+}
+
+
+.kat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+/* === 3. Карточка === */
+.kat-gen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* центрируем содержимое */
+  text-align: center;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+      box-shadow:
+    /* тень от «верхней» грани (светлая) */
+    -2px -2px 5px rgba(255, 255, 255, 0.5),
+    /* тень от «нижней» грани (тёмная) */
+    4px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* === 4. Изображение внутри карточки === */
+.kat-gen > img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* === 5. Тело карточки (контент) === */
+.kat-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     
+  padding: var(--space-4);
+  gap: var(--space-4);
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+/* === 6. Горизонтальные группы (заголовок + иконки) === */
+.kat-sub-2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  justify-content: center;
+  width: 100%;
+}
+
+/* Заголовок + иконки: один ряд внутри kat-sub-2 */
+.kat-sub-2 > h3 + div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: nowrap;
+}
+.kat-sub-2 > h3 + div img {
+  flex-shrink: 0;
+}
+
+/* Текст-описание: обрезка (4 строки) */
+.kat-sub p.feature-text {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+/* === 7. Футер карточки: цена + кнопка === */
+.kat-footer {
+  display: flex;
+  justify-content: space-between; /* десктоп: цена слева, кнопка справа */
+  align-items: center;
+  width: 100%;
+  gap: var(--space-3);
+}
+
+/* === 8. Блок цены === */
+.price-box {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem; /* ~14px */
+  color: var(--color-text);
+  white-space: nowrap;
+  font-weight: auto;
+      box-shadow:
+    /* тень от «верхней» грани (светлая) */
+    -2px -2px 5px rgba(255, 255, 255, 0.5),
+    /* тень от «нижней» грани (тёмная) */
+    4px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* === 9. Кнопка «Уникальное предложение» === */
+.kat-btn {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: var(--radius-md);
+  font-weight: auto;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.3s ease;
+      box-shadow:
+    /* тень от «верхней» грани (светлая) */
+    -2px -2px 5px rgba(255, 255, 255, 0.5),
+    /* тень от «нижней» грани (тёмная) */
+    4px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kat-btn:hover {
+  background-image: linear-gradient(to right, #00ff37c9 20%, #7fcf00 70%);
+  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+/* =============== ВИДЕО СЕКЦИЯ ============== */
+.video-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: none; 
+  height: auto;
+  border-radius: 45px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Заставка */
+.video-thumbnail {
+  background: url('images/your-background.jpg') center/cover no-repeat;
+  height: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+/* Play Button */
+.play-btn {
+  background: white;
+  color: black;
+  font-size: 40px;
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+}
+.play-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Видео */
+.video-frame {
+  display: none;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+}
+.video-frame iframe {
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Текст под кнопкой */
+.video-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+/* ======================================================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.project-card {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
+/* ------------------------------------ */
+.image-section {
+  position: relative;
+}
+
+.main-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.thumbnail-gallery {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;                /* растягиваем галерею по всей ширине родителя */
+  display: flex;
+  justify-content: center; /* центрируем мини-превьюшки по горизонтали */
+  gap: 8px;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+}
+
+
+.thumbnail-gallery img {
+  max-width: 80px;
+  max-height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid white;
+}
+
+.info-section {
+  padding: 20px 24px;
+      box-shadow:
+    /* тень от «верхней» грани (светлая) */
+    -2px -2px 5px rgba(255, 255, 255, 0.5),
+    /* тень от «нижней» грани (тёмная) */
+    4px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-section h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.icon-text img {
+  width: 20px;
+  height: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.learn-more {
+  color: #28a745;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cta {
+  background-color: #f1f1f1;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  max-width: 300px;
+}
+/*------------- слайдер НАЧАЛО------------ */
+/* Обёртка карусели — чтобы стрелки не обрезались */
+/* ===== Основной контейнер карусели ===== */
+#carouselExample {
+  position: relative;
+  overflow: visible;             /* чтобы стрелки не обрезались */
+  max-width: 1200px;
+  min-height: 400px;  
+  margin: 0 auto;
+  padding: var(--space-7) 0;
+  
+}
+
+/* ===== Скрываем все слайды по-умолчанию ===== */
+#carouselExample .carousel-item {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* ===== Показываем только активный слайд ===== */
+#carouselExample .carousel-item.active {
+  display: flex;
+}
+
+/* ===== Оформление содержимого слайда ===== */
+#carouselExample .carousel-item {
+  height: 480px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+/* Изображение внутри слайда */
+#carouselExample .carousel-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+
+/* Текст отзыва */
+#carouselExample .carousel-item p {
+  margin: 0 auto;
+  max-width: 800px;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: var(--line-height);
+  text-align: left;
+}
+
+/* ===== Стрелки навигации ===== */
+#carouselExample .carousel-control-prev,
+#carouselExample .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 67px;
+  height: 67px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  border: none;
+  z-index: 10;
+  opacity: 1;
+  transition: background-color 0.2s;
+  box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.637);
+}
+
+/* Смещение стрелок за пределы контейнера */
+#carouselExample .carousel-control-prev { left: -100px; } /* было -25px */
+#carouselExample .carousel-control-next { right: -100px; } /* было -25px */
+
+/* Убираем дефолтные иконки */
+#carouselExample .carousel-control-prev-icon,
+#carouselExample .carousel-control-next-icon {
+  display: none;
+}
+
+/* Собственные стрелки */
+#carouselExample .carousel-control-prev::after,
+#carouselExample .carousel-control-next::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 20px; height: 20px; 
+  /* БЫЛО 12 */
+  border-top: 2px solid var(--color-bg);
+  border-right: 2px solid var(--color-bg);
+  transform: translate(-63%, -50%) rotate(45deg);
+}
+#carouselExample .carousel-control-prev::after {
+  transform: translate(-27%, -50%) rotate(-135deg);
+}
+
+/* Ховер-эффект для стрелок */
+#carouselExample .carousel-control-prev:hover,
+#carouselExample .carousel-control-next:hover {
+  background-color: rgba(127, 207, 0, 0.9);
+}
+
+/* ===== Индикаторы (точки) ===== */
+#carouselExample .carousel-indicators {
+  bottom: -30px;
+}
+#carouselExample .carousel-indicators li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  transition: background-color 0.2s, transform 0.2s;
+}
+#carouselExample .carousel-indicators .active {
+  background-color: var(--color-accent);
+  transform: scale(1.2);
+}
+
+
+/* === 2. Стилизация <p> под общую стилистику === */
+#carouselExample .carousel-item > div:first-child p {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: var(--line-height);
+  margin: 0 0 var(--space-3);  /* снизу отступ, у последнего тоже уберётся */
+}
+
+/* Если хотите чуть более контрастный первый абзац */
+#carouselExample .carousel-item > div:first-child p:first-child {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+/* Hasdfdaw */
+.slide-inner {
+  height: 420px;
+  border: 1px solid var(--color-border);     /* рамка */
+  border-radius: var(--radius-sml);          /* скругление */
+  padding: var(--space-4);                   /* внутренний отступ внутри рамки */
+  margin: var(--space-0);                    /* отступ от краёв слайда */
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-7);                       /* расстояние между p и видео внутри */
+}
+
+#carouselExample .slide-inner > div:first-child img {
+  width: 80px;           /* фиксируем размер (как у мобильной версии ставьте 60px или любой другой) */
+  height: 80px;
+  object-fit: cover;     /* чтобы изображение не искажалось */
+  border-radius: 50%;    /* делает круглым */
+  border: 2px solid var(--color-border); /* при желании добавить рамку */
+  margin-top: var(--space-2); /* отступ сверху, если нужно подвинуть вниз */
+}
+
+/* VIDEO SELECTOR */
+
+.video-thumbnail2 {
+  background: url('images/your-background.jpg') center/cover no-repeat;
+  height: 350px;
+  width: 550px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+/* МОБЛЬНАЯ ВЕРСИЯ ЭТОГО СЛАЙДЕРАААААААА ========================================================= */
+
+/* === Мобильный слайдер (sm и ниже) === */
+#carouselMobile {
+  max-width: 100%;
+  margin: 1.5rem auto;    /* отступы сверху/снизу и центрирование */
+  overflow: hidden;       /* чтобы содержимое не «выскакивало» за границу */
+}
+
+/* Увеличим высоту отдельного мобильного слайда (если нужно) */
+#carouselMobile .carousel-item {
+  /* Если вы хотите фиксированную высоту: */
+  /* height: 250px; */    /* можно раскомментировать, если надо */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Внутренний блок .slide-inner (мобильный вариант) */
+#carouselMobile .slide-inner {
+    width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-3);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Блок аватар + кнопка Play */
+#carouselMobile .avatar-play {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+/* Аватар */
+#carouselMobile .avatar-play img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+}
+
+/* Кнопка Play для мобилки */
+#carouselMobile .play-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: 1.25rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+#carouselMobile .play-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Заголовок отзыва (первый <p>) */
+#carouselMobile .review-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+/* Основной текст отзыва (второй <p>) */
+#carouselMobile .review-text {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height);
+}
+
+/* Убираем стрелки навигации для мобилки (их нет в HTML) */
+#carouselMobile .carousel-control-prev,
+#carouselMobile .carousel-control-next {
+  display: none;
+}
+
+/* Если понадобится индикатор-точки: */
+#carouselMobile .carousel-indicators {
+  bottom: -20px;
+}
+#carouselMobile .carousel-indicators [data-bs-target] {
+  background-color: var(--color-border);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+#carouselMobile .carousel-indicators .active {
+  background-color: var(--color-accent);
+  transform: scale(1.2);
+}
+
+/* =============== Контейнер всего блока =============== */
+.contacts-section {
+  position: relative;
+  width: 100%;
+  min-height: 600px;             /* Жёсткая высота блока с картой; можно подобрать под дизайн */
+  overflow: hidden;
+  margin: var(--space-6) 0;   /* Отступ сверху/снизу от других блоков страницы */
+}
+
+/* =============== КАРТА =============== */
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.contacts-map {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none; /* Если нужно, чтобы карта была НЕ кликабельна; уберите, если хотите интерактивность */
+  filter: contrast(0.95) brightness(1.05); /* Немного приглушаем яркость/контраст для читаемости */
+  /* Можно добавить другие фильтры: blur(2px), grayscale(0.2) и т.д. по вкусу */
+}
+
+/* =============== КАРТОЧКА С КОНТАКТАМИ =============== */
+.contacts-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центрируем по горизонтали и вертикали */
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-5) var(--space-6);
+  max-width: 900px;
+  width: 90%;
+  z-index: 2; /* Чтобы карточка была над картой */
+}
+
+/* Заголовок «Контакты» */
+.contacts-card h2 {
+  font-size: calc(var(--font-base) * 1.75);
+  margin-bottom: var(--space-4);
+  text-align: left;
+}
+
+/* Сетка внутри карточки: две колонки */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+/* Каждая колонка контактов */
+.contacts-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Один элемент контактов (иконка + текст) */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* Иконка */
+.contact-item .icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  fill: var(--color-accent);
+  margin-top: 4px; /* Подровнять чуть по вертикали относительно текста */
+}
+
+/* Текстовая часть каждого контакта */
+.contact-item small {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  display: block;
+  margin-bottom: 4px;
+}
+.contact-item span,
+.contact-item a {
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+.contact-item a:hover {
+  color: var(--color-accent);
+}
+
+/* Дополнительный отступ внизу для ИП (чтобы немного «подвинуть» вниз) */
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ================= FOOTER ================= */
+#Footer_1 {
+  background: #fff;
+  padding: 20px 0;
+  font-family: sans-serif;
+  color: #333;
+}
+
+/* ============ .footer-container: CSS Grid ============ */
+.footer-container {
+  display: grid;
+  grid-template-columns: auto repeat(5, auto) auto;
+     /* 1) logo, 5× по одному пункту меню, и в конце 1 колонка для «calc», 1 — для «copy» */
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Логотип --- */
+.footer-logo img {
+  height: auto;
+  width: auto;
+}
+
+/* --- Общий стиль для пунктов меню и «Рассчитать стоимость» --- */
+.footer-container a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.footer-container a:hover {
+  color: #7fcf00;
+}
+
+/* --- Копирайт --- */
+.footer-copy {
+  font-size: 14px;
+  color: #777;
+  white-space: nowrap;
+}
+
+
+.navbar-toggler {
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+/* === 1. Базовые стили Navbar === */
+.navbar {
+  display: flex;           /* чтобы внутри был флекс-контейнер */
+  flex-wrap: nowrap;       /* запрещаем перенос пунктов меню */
+  align-items: center;     /* выравниваем контент по вертикали */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbar .container {
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+/* Превращаем ul.navbar-nav в флекс-контейнер */
+.navbar-nav {
+  display: flex;
+  flex-wrap: nowrap;       /* никакого переноса пунктов */
+  align-items: center;
+}
+
+/* Отступ между соседними <li class="nav-item"> */
+.navbar-nav .nav-item + .nav-item {
+  margin-left: 5rem;       /* исходный отступ; в медиазапросе уменьшится */
+}
+
+/* Ссылки в меню */
+.navbar-nav .nav-link {
+  white-space: nowrap;     /* не дадим «О нас» разбиться на две строки */
+  text-decoration: none;   /* убираем подчёркивание */
+  color: #000;             /* цвет текста пунктов меню */
+  font-weight: 500;        /* желаемая жирность */
+  padding: 0.5rem 1rem;    /* вертикальный/горизонтальный паддинг */
+  transition: color 0.2s;
+}
+
+/* Цвет при наведении */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #4CAF50;
+}
+
+.phone-block {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;     /* не дадим номеру перенестись */
+  margin-left: 2rem;       /* отступ от последнего пункта меню */
+}
+
+/* Иконка телефона */
+.phone-block .phone-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+}
+
+/* Сама ссылка номера */
+.phone-block .phone-number {
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;     /* гарантия, что цифры не разорвутся */
+  transition: color 0.2s;
+}
+
+.phone-block .phone-number:hover {
+  color: #4CAF50;
+}
+
+/* кнопки  */
+
+
+.custom-buttons-wrapper {
+  display: flex;
+  justify-content: flex-end; /* прижать кнопку к правому краю */
+  padding-right: var(--space-5); /* отступ от края экрана (если нужно) */
+  margin: var(--space-0) 0;      /* вертикальный gap между соседними блоками */
+  position: relative;            /* чтобы z-index работал корректно */
+  z-index: 10;                   /* чтобы кнопки были поверх других блоков (если наложение) */
+}
+
+/* Сам круглый <button> */
+.custom-btn {
+  background-color: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* центрируем <img> внутри */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Размер SVG */
+.custom-btn img {
+  max-width: 55%;
+  height: auto;
+}
+
+/* Определяем keyframes для «пульсации» */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+.custom-btn {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.button-1 .calculator-btn {
+  /* если нужен уникальный цвет фона/границы для первой — здесь */
+  background-color: #7c7c7c;
+  border-color: var(--color-border);
+}
+
+.button-1 .calculator-btn:hover {
+  animation: none;
+  transform: translateY(-2px) scale(1.07);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.green-btn img{
+  max-width: 35%;
+}
+
+.button-2 .green-btn {
+  background-color: #7fcf00; /* салатово-зелёный */
+  border: none;
+}
+
+.button-2 .green-btn:hover {
+  animation: none;
+  transform: translateY(-2px) scale(1.07);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+/* === 1. Основное затемнение и контейнер модалки === */
+.modal-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  height: 105vh;
+  display: none;               /* скрыта по умолчанию */
+  justify-content: center;     /* центрирует по горизонтали */
+  align-items: center;         /* центрирует по вертикали */
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+}
+
+.modal-form.active {
+  display: flex;
+}
+
+/* === 2. Псевдо-оверлей (дополнительно, если нужен отдельный слоённый фон) === */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Можно оставить полупрозрачный фон здесь, 
+     но поскольку .modal-form уже даёт затемнение, 
+     это правило можно делать неактивным или убрать */
+  background: transparent;
+  /* Если хотите дополнительное затемнение, 
+     замените transparent на rgba(0,0,0,0.6) */
+}
+
+/* === 3. Само содержимое формы === */
+.modal-content {
+  position: relative;      /* чтобы кнопка закрытия позиционировалась относительно него */
+  background: #fff;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 480px;        /* ширина не больше 480px */
+  padding: 30px 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  /* Слегка «приподнимем» содержимое, если нужно: */
+  /* transform: translateY(-10px); */
+}
+
+/* === 4. Кнопка закрытия «×» === */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+/* === 5. Заголовок и параграфы === */
+.modal-content h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.modal-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* === 6. Блок преимуществ («Экономия…») === */
+.modal-benefits p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 12px 0 4px;
+}
+
+.modal-benefits small {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* === 7. Поля формы === */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* выравниваем по центру */
+  gap: 12px;             /* расстояние между полями */
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+/* === 8. Кнопка отправки формы === */
+.modal-content .green-btn {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #7fcf00;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-content .green-btn:hover {
+  background-color: #69b300;
+}
+
+/* === 9. Текст-отказ от ответственности («Нажимая…») === */
+.disclaimer {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.calc-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 в ряд на десктопе */
+  gap: 20px;
+  margin: 20px 0 30px;
+}
+
+/* Каждый шаг (иконка + подпись) */
+.calc-benefits .benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.calc-benefits .benefit-item img {
+  margin-bottom: 8px;
+}
+
+#calcModal .modal-content {
+  width: 90%;
+  max-width: 600px;    /* вместо 480px делаем до 600px */
+  min-width: 320px;    /* минимальная читаемая ширина, можно скорректировать */
+}
+
+
+.back-to-top {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  background-color: #8bd000;
+  color: white;
+  font-size: 24px;
+  padding: 0;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+  z-index: 1000;
+}
+
+
+
+#backToTopBtn:hover {
+  transform: translateY(-3px);
+}
+
+
+.offcanvas-toggle {
+  all: unset; /* Сбросить все базовые стили, включая от .btn */
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 1051;
+
+  /* Размер и форма */
+  width: 48px;
+  height: 48px;
+  border-radius: 0 8px 8px 0;
+
+  /* Центровка и фон */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: var(--color-accent);
+  color: var(--color-bg, #fff);
+  font-size: 20px;
+  cursor: pointer;
+
+  /* Эффекты */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: none;
+}
+
+
+.offcanvas-toggle:hover {
+  background-color: #157347;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+  background-color: #fff0f0;
+}
+
+.input-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+
+
+/* Responsive Breakpoints */
+@media (max-width: 1230px) {
+  .hero,
+  .form-block {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+    .request-form {
+    grid-template-columns: 1fr 1fr; /* два столбца */
+  }
+  .request-form button {
+    width: 60%;
+  }
+    .form-image {
+    display: none;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    .bn {
+    grid-template-columns: repeat(2, 1fr);
+    padding: var(--space-5) var(--space-4);
+    gap: var(--space-4);
+  }
+  .bn-title {
+    margin-bottom: var(--space-4);
+  }
+  .bn-img {
+    margin: var(--space-4) 0;
+    
+  }
+    .dist {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .dist-upper {
+    grid-template-columns: repeat(2, 1fr); /* На планшетах — по 2 блока */
+  }
+  .dist-lowwer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    .cards-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    padding: 20px;
+  }
+
+  .project-card {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+    min-width: 300px;
+  }
+    .cards-slider::-webkit-scrollbar {
+    display: none;
+  }
+.footer-container {
+    /* Сначала 6 колонок: logo + 4 пункта меню + calc,
+       затем копирайт идёт на новую строку (flex-basis:100%) */
+    grid-template-columns: auto repeat(4, auto) auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "logo item2 item3 item4 item5 calc"
+      "copy  copy  copy  copy  copy  copy";
+  }
+
+  /* Задаём grid-area явно для блоков. Можно не указывать для footer-logo и footer-copy, 
+     но для наглядности я прописываю: */
+  .footer-logo {
+    grid-area: logo;
+  }
+  .footer-item:nth-child(2) { grid-area: item2; } /* «О нас» */
+  .footer-item:nth-child(3) { grid-area: item3; } /* «Каталог» */
+  .footer-item:nth-child(4) { grid-area: item4; } /* «Отзывы» */
+  .footer-item:nth-child(5) { grid-area: item5; } /* «Контакты» */
+  .footer-calc {
+    grid-area: calc;
+  }
+  .footer-copy {
+    grid-area: copy;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+
+        .phone-block .phone-icon {
+        width: 18px;
+        height: 18px;
+      }
+      .phone-block .phone-number {
+        font-size: 0.9rem;
+      }
+/* ===== Секция Каталога (2 колонки вместо 3) ===== */
+  .kat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  /* Содержимое карточки: уменьшаем внутренние отступы */
+  .kat-sub {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+
+  .kat-sub-2 {
+    gap: var(--space-2);
+  }
+
+  /* Блок цены: чуть меньше шрифт и padding */
+  .price-box {
+    font-size: 0.85rem;
+    padding: var(--space-2) var(--space-2);
+  }
+
+  /* Кнопка: чуть меньше padding и шрифт */
+  .kat-btn {
+    font-size: 0.875rem;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  /* Футер карточки (до этого порога остаётся в строку) */
+  .kat-footer {
+    /* Ничего не меняем: flex-row */
+    /* display: flex; justify-content: space-between; будет на уровне базовых стилей */
+  }
+
+
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 1rem;      /* вместо 2rem → 1rem */
+  }
+
+  /* Немного уменьшаем шрифт пунктов, чтобы текст не «жал»: */
+  .navbar-nav .nav-link {
+    font-size: 0.95rem;
+  }
+
+  /* Уменьшаем отступ телефона от меню */
+  .phone-block {
+    margin-left: 1rem;      /* вместо 2rem → 1rem */
+  }
+
+  /* Можно чуть-чуть подправить размер иконки телефона: */
+  .phone-block .phone-icon {
+    width: 20px; /* если нужно */
+    /* высота выставится auto, чтобы сохранить пропорции */
+  }
+
+
+
+
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+    .request-form {
+    grid-template-columns: 1fr;  /* один столбец */
+  }
+  .request-form button {
+    width: 60%;
+    justify-self: center; 
+  }
+    .form-image {
+    display: none;
+  }
+  .site-header {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    text-align: center;
+  }
+  .main-nav ul {
+    flex-direction: column;
+  }
+    .bn-item {
+    padding: var(--space-2);
+  }
+  .bn-icon {
+    width: 32px;
+    margin-bottom: var(--space-1);
+  }
+  .bn-item-title {
+    font-size: 0.9rem;
+  }
+
+  .dist-upper {
+    grid-template-columns: 1fr;
+  }
+  .dist-lowwer {
+    grid-template-columns: 1fr;
+  }
+    .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contacts-section {
+    height: auto; /* секция может расти по содержимому */
+    width: 100%;
+  }
+
+  .contacts-card {
+    position: relative; /* убираем абсолют и центрируем через margin */
+    left: auto;
+    transform: none;
+    margin: var(--space-5) auto;
+    padding: var(--space-5) var(--space-4);
+    width: 95%;
+    max-width: 360px;
+    padding-bottom: var(--space-5); /* на случай длинного контента */
+  }
+
+  .contacts-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-4);
+    text-align: center; /* центрируем заголовок */
+  }
+
+  .contacts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .contacts-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* выравниваем контакты по центру */
+    text-align: left;
+  }
+
+  .contact-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .contact-item .icon {
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+  }
+
+  .contact-item small {
+    font-size: 0.75rem;
+  }
+
+  .contact-item span,
+  .contact-item a {
+    font-size: 0.875rem;
+  }
+.footer-container {
+    /* В одну колонку: logo → item2 → item3 → item4 → item5 → calc → copy */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    text-align: center;
+  }
+
+  /* Логотип чуть меньше, чтобы на узких экранах комфортно было */
+  .footer-logo img {
+    height: 36px;
+  }
+
+  /* Пункты меню пошли в колонку один за другим */
+  .footer-item a {
+    font-size: 14px;
+  }
+
+  /* «Рассчитать стоимость» центрируется, с небольшим отступом сверху */
+  .footer-calc {
+    margin-top: 8px;
+  }
+  .calculate-link {
+    font-size: 14px;
+  }
+
+  /* Копирайт ставим последним */
+  .footer-copy {
+    margin-top: 8px;
+    font-size: 13px;
+  }
+
+
+
+    /* ===== Сетка Каталога: 1 колонка карточек ===== */
+  .kat-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  /* Уменьшаем отступы внутри карточки */
+  .kat-sub {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+
+  .kat-sub-2 {
+    gap: var(--space-2);
+  }
+
+  /* Цена и кнопка пока ещё в строку (если нужно оставить до 520px) */
+  .price-box {
+    font-size: 0.85rem;
+    padding: var(--space-2) var(--space-2);
+  }
+
+  .kat-btn {
+    font-size: 0.875rem;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  /* чтобы уже здесь футер стал вертикальным, раскомментировать!: */
+  /*
+  .kat-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+  .price-box,
+  .kat-btn {
+    width: 100% !important;
+    text-align: center;
+  }
+  */
+
+   .custom-buttons-wrapper {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2px;
+    
+  }
+
+  header + #shapka-1,
+  .custom-buttons-wrapper + .custom-buttons-wrapper {
+    order: 3;
+  }
+
+  .custom-btn {
+    margin: 10px 0;
+  }
+
+
+
+  
+  
+}
+/* ================================
+   АДАПТИВ ДЛЯ ЭКРАНОВ ≤ 520px
+================================== */
+
+@media screen and (max-width: 520px) {
+
+  /* Убираем внешние отступы у контейнера карточек */
+  .cards-grid {
+    display: block;     /* одна колонка */
+    padding: 10px;      /* уменьшаем отступы */
+  }
+
+  /* Каждая карточка занимает всю ширину */
+  .project-card {
+    margin-bottom: 15px;
+    border-radius: 6px;
+  }
+
+  /* Секция с изображением и миниатюрами */
+  .image-section {
+    width: 100%;
+  }
+
+  .image-section .main-image {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Галерея миниатюр: делаем горизонтальную прокрутку */
+  .thumbnail-gallery {
+    display: flex;
+    gap: 5px;
+    padding: 8px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .thumbnail-gallery img {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  /* Инфо-секция */
+  .info-section {
+    padding: 12px;
+  }
+
+  .info-section h2 {
+    font-size: 1rem; /* 16px */
+    margin-bottom: 8px;
+  }
+
+  /* Сетка характеристик: делаем одну колонку */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .specs-grid small {
+    font-size: 0.7rem; /* ~11px */
+  }
+
+  .icon-text {
+    gap: 4px;
+  }
+
+  .icon-text img {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Кнопки */
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .learn-more {
+    text-align: center;
+    font-size: 0.85rem; /* ~14px */
+    padding: 6px 10px;
+  }
+
+  .cta {
+    padding: 8px;
+  }
+
+  .cta strong {
+    font-size: 0.9rem;
+  }
+
+  .cta span {
+    font-size: 0.75rem;
+  }
+
+
+  /* 4.1. Сама шапка — убрать лишние паддинги */
+  .navbar {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* 4.2. Логотип */
+  .navbar-brand img {
+    /* уменьшаем высоту логотипа, чтобы не занимал слишком много места */
+    height: 40px;
+  }
+
+  /* 4.3. Кнопка «гамбургер» (чтобы была чуть меньше иконка) */
+  .navbar-toggler {
+    padding: 0.25rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* 4.4. Блок с телефоном: уменьшаем шрифт и иконку */
+  .phone-block .phone-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .phone-block .phone-number {
+    font-size: 0.85rem; /* около 14px */
+  }
+
+  /* 4.5. Сама панель меню при развёрнутом виде (в collapse): 
+         делаем ссылки чуть уже, убираем слишком большие паддинги */
+  .navbar-collapse .navbar-nav .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem; /* ок. 14.5px */
+  }
+
+  /* 4.6. Если пункты слишком длинные (например, «Узнать подробнее») —
+         можно разбивать текст или делать переносы */
+  .navbar-nav .nav-link {
+    white-space: normal; /* чтобы текст мог переноситься */
+    display: block;
+  }
+
+  /* 4.7. Дополнительно: если нужно, чтобы логотип, гамбургер и телефон 
+         не «слипались», можно увеличить отступы между ними */
+  .navbar .navbar-brand {
+    margin-right: 0.5rem;
+  }
+  .navbar-toggler {
+    margin-left: auto;
+  }
+  .phone-block {
+    margin-left: 0.5rem;
+  }
+
+
+
+/* ===== Сетка Каталога: 1 колонка ===== */
+  .kat-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  /* Карточки: убираем лишние отступы между ними */
+  .kat-gen {
+    margin-bottom: var(--space-5);
+  }
+
+  /* Тело карточки: padding и gap чуть меньше */
+  .kat-sub {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+
+  .kat-sub-2 {
+    gap: var(--space-2);
+  }
+
+  /* ===== Футер карточки: переводим в вертикальную колонку ===== */
+  .kat-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+
+  /* Блок «Цена»: во всю ширину, текст по центру */
+  .price-box {
+    display: block;
+    width: 100% !important;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: var(--space-2) var(--space-2);
+    margin: 0 auto;
+  }
+
+  /* Кнопка: во всю ширину, текст по центру */
+  .kat-btn {
+    white-space: normal;
+    display: block;
+    width: 100% !important;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: var(--space-1) var(--space-2);
+    box-sizing: border-box;
+  }
+
+  /* Описание внутри карточки: обрезаем до 3 строк */
+  .kat-sub p.feature-text {
+    -webkit-line-clamp: 3;
+  }
+
+   .bn {
+    grid-template-columns: 1fr;     /* одна колонка */
+    gap: var(--space-3);            /* ещё меньше расстояние */
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .bn-title {
+    font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.25);
+    margin-bottom: var(--space-3);
+  }
+
+  .bn-left,
+  .bn-right {
+    gap: var(--space-2);
+  }
+
+  .bn-item {
+    padding: var(--space-2);
+    flex-direction: column;        /* иконка над текстом (опционально) */
+  }
+  .bn-icon {
+    width: 28px;
+    margin-bottom: var(--space-1);
+  }
+  .bn-item-title {
+    font-size: 0.85rem;
+  }
+
+  .bn-btn-wrapper {
+    margin-top: var(--space-3);
+  }
+}

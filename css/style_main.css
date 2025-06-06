@@ -1,0 +1,571 @@
+/* styles.css */
+
+:root {
+  /* Цветовая палитра */
+  --color-bg: #fff;
+  --color-accent: #7fcf00;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555;
+  --color-border: #e0e0e0;
+  --color-card-bg: #fafafa;
+
+  /* Типографика */
+  --font-base: 16px;
+  --font-scale-ratio: 1.125;
+  --line-height: 1.4;
+
+  /* Отступы */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 60px;
+
+  /* Радиусы и тени */
+  --radius-sm: 4px;
+  --radius-md: 22px; /* увеличенный радиус для элементов формы */
+  --radius-lg: 30px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: var(--font-base);
+  line-height: var(--line-height);
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  font-family: sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.flex { display: flex; }
+.align-center { align-items: center; }
+.gap-2 { gap: var(--space-2); }
+
+/* Header */
+.site-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+.logo img { height: 40px; }
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+.main-nav ul {
+  display: flex;
+  gap: var(--space-4);
+}
+.main-nav a {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: color 0.2s;
+}
+.main-nav a:hover { color: var(--color-accent); }
+.contact a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.9; }
+
+/* Hero Section */
+.hero,
+.form-block,
+.features {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+}
+.hero {
+  grid-template-columns: 1fr 1fr;
+  background: url('../images/bg-clouds.png') no-repeat center top;
+}
+.hero-content h1 {
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 2);
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+.hero-content p {
+  font-size: calc(var(--font-base) * var(--font-scale-ratio));
+  margin-bottom: var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+/* Form Block */
+.form-block {
+  grid-template-columns: 1fr 1fr;
+}
+.form-content h2 {
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.5);
+  line-height: var(--line-height);
+  margin-bottom: var(--space-4);
+}
+.form-content h2 span { color: var(--color-accent); }
+.request-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--space-2);
+  align-items: center;
+}
+.request-form input {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);  /* более скругленное поле */
+  font-size: 0.875rem;
+}
+.request-form button {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  min-width: 160px; /* минимальная ширина для одинакового вида */
+  width: 150%; /* заполняет доступный контейнер */
+  box-sizing: border-box;
+}
+.request-form button:hover { opacity: 0.9; }
+.request-form button:hover { opacity: 0.9; }
+
+/* Features Section */
+.features {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-6);
+}
+.features-title {
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.5);
+  margin-bottom: var(--space-5);
+  text-align: center;
+}
+.features-title span { color: var(--color-accent); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+.feature-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.feature-icon { width: 40px; }
+.feature-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.feature-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: auto;
+}
+.bn-title span { color: var(--color-accent); }
+
+.bn {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-5) var(--space-4);   /* горизонтальный и вертикальный gap */
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+}
+
+.bn-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.5);
+  margin-bottom: var(--space-5);
+  color: var(--color-text-primary);
+}
+
+.bn-hl {
+  color: var(--color-accent);
+}
+
+/* Левая и правая колонки */
+.bn-left,
+.bn-right {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* Карточка преимущества */
+.bn-item {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.bn-icon {
+  width: 40px;
+  height: auto;
+  margin-bottom: var(--space-2);
+}
+
+.bn-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: var(--line-height);
+}
+
+/* Центральное изображение */
+.bn-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bn-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+.bn-btn-wrapper {
+  grid-column: 1 / -1;             /* растянуть на всю ширину grid */
+  display: flex;
+  justify-content: center;         /* центровка по горизонтали */
+  margin-top: var(--space-4);
+}
+
+.bn-btn {
+  display: inline-block;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: opacity 0.2s;
+  text-align: center;
+}
+.bn-btn:hover {
+  opacity: 0.9;
+}
+.dist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5) var(--space-4);
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+  align-items: start;
+}
+
+/* Заголовок на всю ширину */
+.dist-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: calc(var(--font-base) * var(--font-scale-ratio) * 1.5);
+  margin-bottom: var(--space-5);
+}
+
+.dist-title .bn-hl {
+  color: var(--color-accent);
+}
+
+/* Иконка и текст внутри dist-left */
+.dist-left .dist-icon {
+  width: 40px;
+  height: auto;
+  margin-bottom: var(--space-2);
+}
+
+.dist-left .feature-heading,
+.dist-left .feature-text {
+  max-width: 200px;
+  margin: 0;
+  text-align: right;
+}
+.dist-upper{
+  grid-column: 1 / -1;              /* тянем на всю ширину */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+.dist-upper > div {
+  display: flex;
+  flex-direction: column;          /* контент сверху вниз */
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+/* Нижняя (широкая) панель */
+.dist-lowwer {
+  grid-column: 1 / -1;              /* тянем на всю ширину */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+/* Блоки внутри dist-lowwer */
+.dist-lowwer > div {
+  display: flex;
+  flex-direction: column;          /* контент сверху вниз */
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* Общие стили иконок и текстов */
+.dist-icon {
+  width: 40px;
+  height: auto;
+}
+.feature-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+.feature-text {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: var(--line-height);
+  margin: 0;
+}
+/* === Секция каталога === */
+#katalog {
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg);
+}
+
+/* Заголовок (оставлен ваш) */
+/* .dist-title { … } */
+/* .dist-title .bn-hl { … } */
+
+/* === Грид карточек === */
+.kat-upper,
+.kat-lower {
+  display: grid;
+  /* минимум 300px на карточку, в ряд впихнётся по размеру экрана */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-5);
+  
+}
+
+/* === Карточка === */
+.kat-gen {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  /* чтобы все карточки в ряду были равной высоты */
+  height: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.035);
+}
+
+/* === Изображение сверху === */
+.kat-gen > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* === Содержимое карточки === */
+.kat-sub {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  gap: var(--space-4);
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+/* === Горизонтальные группы внутри === */
+.kat-sub-2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* если в .kat-sub-2 есть две зоны (h3+мета) или (цена+кнопка),
+   и нужно оттолкнуть их в разные стороны, то: */
+.kat-sub-2.space-between {
+  justify-content: space-between;
+}
+
+/* === Описание (ваш feature-text) === */
+/* .feature-text { … } */
+/* но при этом чтобы оно не «вылезало»: */
+.kat-sub p.feature-text {
+  margin: 0;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+/* === Футер: цена + кнопка === */
+.kat-sub-2:last-child {
+  /* если хотите сразу в .kat-sub-2 указать justify-content */
+  justify-content: space-between;
+}
+
+/* Ссылка «От …» */
+.kat-sub-2:last-child > a:first-of-type {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  text-decoration: none;
+  align-self: center;
+}
+.kat-sub-2 > h3 + div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: nowrap;    /* запрет переносов */
+}
+
+/* 2. Стопроцентно не даём иконкам сжиматься */
+.kat-sub-2 > h3 + div img {
+  flex-shrink: 0;
+}
+
+/* 3. Подгоняем отступы у текстовых <p> */
+.kat-sub-2 > h3 + div p.feature-text {
+  margin: 0;
+  /* ваш line-height & font-size уже должны быть заданы */
+}
+/* Кнопка */
+.kat-btn {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.kat-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .hero,
+  .form-block {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    .bn {
+    grid-template-columns: 1fr;
+    padding: var(--space-5) var(--space-4);
+    gap: var(--space-4);
+  }
+  .bn-title {
+    margin-bottom: var(--space-4);
+  }
+  .bn-img {
+    margin: var(--space-4) 0;
+    
+  }
+    .dist {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .dist-upper {
+    grid-template-columns: repeat(2, 1fr); /* На планшетах — по 2 блока */
+  }
+  .dist-lowwer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kat-upper,
+  .kat-lower {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-header {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    text-align: center;
+  }
+  .main-nav ul {
+    flex-direction: column;
+  }
+    .bn-item {
+    padding: var(--space-2);
+  }
+  .bn-icon {
+    width: 32px;
+    margin-bottom: var(--space-1);
+  }
+  .bn-item-title {
+    font-size: 0.9rem;
+  }
+
+  .dist-upper {
+    grid-template-columns: 1fr;
+  }
+  .dist-lowwer {
+    grid-template-columns: 1fr;
+  }
+   .kat-upper,
+  .kat-lower {
+    grid-template-columns: 1fr;
+  }
+}
